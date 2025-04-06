@@ -10,7 +10,7 @@ export const BookingProvider = ({ children }) => {
 
   const fetchBookedSeats = async () => {
     try {
-      const res = await fetch('http://localhost:3000/auth/seats');
+      const res = await fetch('https://booking-rqrh.onrender.com/auth/seats');
       const data = await res.json();
       const booked = data.filter(seat => seat.isBooked).map(seat => seat.seatNumber);
       setBookedSeats(booked);
@@ -21,7 +21,7 @@ export const BookingProvider = ({ children }) => {
 
   const fetchUserBookedSeats = async (token) => {
     try {
-      const res = await fetch('http://localhost:3000/auth/seat/user-bookings', {
+      const res = await fetch('https://booking-rqrh.onrender.com/auth/seat/user-bookings', {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();

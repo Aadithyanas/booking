@@ -17,7 +17,7 @@ export default function LoginPage() {
     }
 
     try {
-      const res = await fetch(`http://localhost:3000/auth/login`, {
+      const res = await fetch(`https://booking-rqrh.onrender.com/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

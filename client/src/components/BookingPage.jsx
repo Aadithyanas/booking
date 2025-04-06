@@ -117,7 +117,7 @@ export default function BookingPage() {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:3000/auth/seat/book', {
+      const response = await fetch('https://booking-rqrh.onrender.com/auth/seat/book', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
