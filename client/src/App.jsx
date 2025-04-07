@@ -8,6 +8,7 @@ import BookingPage from './components/BookingPage';
 import Home from './components/Home'; // 👈 Import your Landing Page
 import { useAuth } from './context/AuthContext';
 import Footer from './components/Footer';
+import Navbar from './components/Navbar';
 
 function PrivateRoute({ children }) {
   const { user } = useAuth();
@@ -17,7 +18,9 @@ function PrivateRoute({ children }) {
 function App() {
   return (
     <Router>
+     
       <AuthProvider>
+      <Navbar/>
         <BookingProvider>
           <Toaster position="top-right" />
           <Routes>
