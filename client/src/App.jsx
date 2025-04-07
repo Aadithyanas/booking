@@ -5,7 +5,9 @@ import { BookingProvider } from './context/BookingContext';
 import LoginPage from './components/LoginPage';
 import SignupPage from './components/SignupPage';
 import BookingPage from './components/BookingPage';
+import Home from './components/Home'; // 👈 Import your Landing Page
 import { useAuth } from './context/AuthContext';
+import Footer from './components/Footer';
 
 function PrivateRoute({ children }) {
   const { user } = useAuth();
@@ -19,6 +21,7 @@ function App() {
         <BookingProvider>
           <Toaster position="top-right" />
           <Routes>
+            <Route path="/" element={<Home />} /> {/* 👈 Landing Page */}
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
             <Route
@@ -29,10 +32,12 @@ function App() {
                 </PrivateRoute>
               }
             />
-            <Route path="/" element={<Navigate to="/login" />} />
+            {/* Optional fallback */}
+            <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </BookingProvider>
       </AuthProvider>
+      <Footer/>
     </Router>
   );
 }
